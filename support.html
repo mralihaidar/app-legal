@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Secure Charging Animations</title>
+<style>
+  :root{
+    --bg:#0C0C0F; --card:#17171C;
+    --accent:#00B4D8;
+    --text:#F2F4F8; --text-dim:#AEB4C2; --text-faint:#6B7180;
+    --border:rgba(255,255,255,0.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;}
+  body{line-height:1.6;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px 100px;}
+  header.hero{
+    padding:72px 28px 48px;
+    background:
+      radial-gradient(ellipse 900px 400px at 50% 0%, rgba(0,180,216,0.14), transparent 65%),
+      linear-gradient(180deg,#08080E,#0E0D18 60%,var(--bg));
+    border-bottom:1px solid var(--border);
+    text-align:center;
+  }
+  .icon-badge{width:64px;height:64px;border-radius:18px;margin:0 auto 22px;
+    background:linear-gradient(160deg,#00B4D8,#005F8A);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 28px rgba(0,180,216,0.3);}
+  h1{font-size:38px;font-weight:800;letter-spacing:-0.5px;margin:0 0 12px;}
+  .lede{color:var(--text-dim);font-size:17px;max-width:480px;margin:0 auto;}
+  main{padding-top:16px;}
+
+  .contact-row{display:flex;gap:16px;margin:44px 0 8px;flex-wrap:wrap;}
+  .contact-card{flex:1;min-width:220px;background:var(--card);border:1px solid var(--border);
+    border-radius:18px;padding:26px;}
+  .contact-card .label{color:var(--text-faint);font-size:12px;font-weight:700;letter-spacing:1px;
+    text-transform:uppercase;margin-bottom:10px;}
+  .contact-card .value{font-size:17px;font-weight:600;}
+  .contact-card a{color:var(--accent);text-decoration:none;}
+  .fill{background:rgba(245,158,11,0.12);color:#F59E0B;border:1px solid rgba(245,158,11,0.3);
+    border-radius:6px;padding:1px 7px;font-size:0.9em;font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+
+  h2{font-size:24px;font-weight:800;margin:64px 0 24px;letter-spacing:-0.3px;}
+
+  .faq{border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:12px;background:var(--card);}
+  .faq summary{list-style:none;cursor:pointer;padding:20px 22px;font-size:16px;font-weight:600;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";color:var(--accent);font-size:22px;font-weight:400;flex-shrink:0;}
+  .faq[open] summary::after{content:"–";}
+  .faq .a{padding:0 22px 22px;color:var(--text-dim);font-size:15px;}
+  .faq .a p{margin:0 0 12px;}
+  .faq .a ul{margin:0 0 12px;padding-left:20px;}
+  .faq .a li{margin-bottom:6px;}
+
+  .steps{counter-reset:step;padding:0;margin:0;list-style:none;}
+  .steps li{counter-increment:step;position:relative;padding-left:44px;margin-bottom:14px;color:var(--text-dim);font-size:15px;}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:0;width:28px;height:28px;
+    border-radius:8px;background:rgba(0,180,216,0.12);color:var(--accent);font-weight:700;font-size:13px;
+    display:flex;align-items:center;justify-content:center;}
+
+  footer{text-align:center;color:var(--text-faint);font-size:13px;padding:56px 28px 0;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="icon-badge">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="white"/></svg>
+  </div>
+  <h1>Support</h1>
+  <p class="lede">Everything you need to get the most out of Secure Charging Animations — or reach a real person if you're stuck.</p>
+</header>
+
+<div class="wrap">
+<main>
+
+  <div class="contact-row">
+    <div class="contact-card">
+      <div class="label">Email</div>
+      <div class="value"><a href="mailto:your-email@example.com" class="fill">your-email@example.com</a></div>
+    </div>
+    <div class="contact-card">
+      <div class="label">Typical response time</div>
+      <div class="value">Within 24–48 hours</div>
+    </div>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+
+  <details class="faq" open>
+    <summary>Why do "To Full" and "Power" show "–" instead of a number?</summary>
+    <div class="a">
+      <p>Those two stats are calculated from your <em>own device's</em> real charging speed — not a fake fixed number — so the App needs to observe one real battery reading change before it can estimate anything.</p>
+      <ul>
+        <li>Keep the App open (or the charging screen active) for a few minutes after plugging in</li>
+        <li>iOS only reports battery level in ~5% steps, so the first update can take a few minutes depending on your charger</li>
+        <li>Once the App sees that first jump, both values populate and update continuously from then on</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>I skipped setting a PIN on first launch. Can I still turn it on later?</summary>
+    <div class="a">
+      <p>Yes. Go to <strong>Settings → Security</strong> and turn on PIN Lock — you'll be prompted to set your 4-digit PIN right there. Nothing about skipping it during onboarding blocks you from enabling it later.</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>How do I unlock the full animation library?</summary>
+    <div class="a">
+      <p>Six animations are free to use right away. The rest of the 50+ library unlocks with a Pro subscription, available from <strong>Settings → Video Animation Library</strong> or the star badge on any locked animation.</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>How do I remove ads?</summary>
+    <div class="a">
+      <p>Ad removal is included with a Pro subscription. Go to <strong>Settings</strong> and look for the "Remove Ads" option, or restore a previous purchase from the same screen if you've subscribed before.</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>I forgot my PIN — how do I get back in?</summary>
+    <div class="a">
+      <p>If Face ID is enabled, use it as a fallback to unlock, then go to <strong>Settings → Security → Change PIN</strong> to set a new one. If you have no way in, reinstalling the App will reset all local settings, including your PIN — this also clears your locally stored intruder logs and preferences.</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>Does the charging animation drain my battery faster?</summary>
+    <div class="a">
+      <p>The animations run while your device is actively charging, so any extra draw is offset by the charger. We optimize every animation for OLED displays specifically because true blacks use meaningfully less power than a bright, full-screen animation would.</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>Can I change the app language?</summary>
+    <div class="a">
+      <p>Yes — go to <strong>Settings → Language</strong> and pick from English, Spanish, French, German, Arabic, Japanese, or Simplified Chinese. This switches instantly, no reinstall needed.</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>How do I trigger my charging animation with Siri or Shortcuts?</summary>
+    <div class="a">
+      <p>Open the Shortcuts app, search for "Secure Charging Animations," and add the <strong>Start Charging Animation</strong> action to any automation — for example, "when my charger connects." You can also find a step-by-step guide inside the App under <strong>Settings → Shortcuts Guide</strong>.</p>
+    </div>
+  </details>
+
+  <h2>Still stuck?</h2>
+  <ol class="steps">
+    <li>Make sure you're on the latest version of the App from the App Store</li>
+    <li>Try a restart — most display or animation glitches clear up after relaunching</li>
+    <li>Email <span class="fill">your-email@example.com</span> with your device model, iOS version, and a quick description (a screenshot helps a lot)</li>
+  </ol>
+
+</main>
+</div>
+
+<footer>© 2026 <span class="fill">Your Name / Company</span> · Secure Charging Animations</footer>
+
+</body>
+</html>
